@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WeekDays from '../WeekDays';
 import MonthDays from '../MonthDays';
+import { CalendarContext } from '../../App';
 import './Calendar.css';
 
 class Calendar extends Component {
@@ -8,9 +9,15 @@ class Calendar extends Component {
     return (
       <>
         <WeekDays />
-        <div className="calendar-body">
-          <MonthDays />
-        </div>
+        <CalendarContext.Consumer>
+        {({state, onDateChange}) => {
+          return (
+            <div className="calendar-body">
+              <MonthDays date={state.current} onDateChange={onDateChange}/>
+            </div>
+          )
+        }}
+        </CalendarContext.Consumer>
       </>
     );
   }

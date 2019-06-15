@@ -90,17 +90,17 @@ export const isSameDay = (date, basedate = new Date()) => {
 }
 
 export const getPreviousMonth = (month, year) => {
-	const prevMonth = (month > 1) ? month - 1 : 12;
+	const prevMonth = (month > 1) ? month - 1 : 11;
 	const prevMonthYear = (month > 1) ? year : year - 1;
 
-	return { month: prevMonth, year: prevMonthYear };
+	return { prevMonth, prevMonthYear };
 }
 
 export const getNextMonth = (month, year) => {
 	const nextMonth = (month < 12) ? month + 1 : 1;
 	const nextMonthYear = (month < 12) ? year : year + 1;
 
-	return { month: nextMonth, year: nextMonthYear };
+	return { nextMonth, nextMonthYear };
 }
 
 export default (month = THIS_MONTH, year = THIS_YEAR) => {

@@ -6,7 +6,7 @@ import './App.css';
 export const CalendarContext = React.createContext(null);
 class App extends Component {  
   state = {
-    current: new Date(),    
+    current: new Date(),
   }
 
   onDateChange = (current) => {
@@ -23,7 +23,7 @@ class App extends Component {
         onDateChange: this.onDateChange
       }}>
         <div className="app">
-          <CalendarHeader current={current} />
+          <CalendarHeader current={current} onDateChange={this.onDateChange}/>
           <Calendar />
         </div>
       </CalendarContext.Provider>
