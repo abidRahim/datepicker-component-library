@@ -3,10 +3,12 @@ import { CALENDAR_MONTHS } from '../../helpers/calendarMethod';
 import './MonthList.css';
 
 class MonthList extends Component {
-  render() {
-    const {  } = this.props;
+  closeMonthList = () => {
+    // this.props.toggleMonthList(true);
+  }
+  render() {    
     return(
-      <div className="month-select">
+      <div className="month-select" onClick={this.closeMonthList}>
         {Object.keys(CALENDAR_MONTHS).map((month) => (
             <div key={month} className="header-month">
               {CALENDAR_MONTHS[month]}

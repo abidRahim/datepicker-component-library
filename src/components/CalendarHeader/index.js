@@ -8,9 +8,9 @@ class CalendarHeader extends Component {
     showMonthList: false,
   }
 
-  toggleMonthList = () => {
+  toggleMonthList = (showMonthList) => {
     this.setState({
-      showMonthList: !this.state.showMonthList,
+      showMonthList,
     })
   }
 
@@ -23,11 +23,13 @@ class CalendarHeader extends Component {
     const date = current.getDate();
 
     return (
-      <div className="calendar-header">
-        <p className="header-year">{year}</p>
-        {showMonthList ? <MonthList /> :
-          <p className="header-date" onClick={this.toggleMonthList}>{day}, {month} {date}</p>
-        }
+      <div className="header-wrapper">
+        <div className="calendar-header">        
+          <p className="header-year text-boxing">{year}</p>
+          {showMonthList ? <MonthList /> :
+            <p className="header-date text-boxing" onClick={this.toggleMonthList} toggleMonthList={this.toggleMonthList} >{day}, {month} {date}</p>
+          }
+        </div>
       </div>
     );
   }

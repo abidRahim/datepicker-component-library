@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CalendarContext } from '../../App';
 import calendarMethod, {
   isDate,
   isSameDay,
@@ -12,7 +13,7 @@ import './MonthDays.css';
 
 class MonthDays extends Component {
   state = { ...this.getStateFromProp(this.props.date), today: new Date(), activeDate: null };
-  
+
   getStateFromProp(date) {
     const isDateObject = isDate(date);
     const _date = isDateObject ? date : new Date();
@@ -32,9 +33,9 @@ class MonthDays extends Component {
     return calendarMethod(calendarMonth, calendarYear);
   };
 
-  setActive = (event) => {
+  setCurrent = (current) => {
     this.setState({
-      activeDate: event.target.textContent,
+      current,
     });
   }
 
@@ -53,32 +54,39 @@ class MonthDays extends Component {
   //   const props = { index, inMonth, onClick, title: _date.toDateString() };
 
   //   return (
-      
+
   //   );
   // }
 
 
   render() {
-    const { today, activeDate } = this.state;
-    return(
-      <>
-        {this.getCalendarDates().map((date, index) => {
-          const _date = new Date(date.join("-"));
-          const [year, month, day] = date;
-          const isToday = isSameDay(_date, today);
-          const monthString = Object.keys(CALENDAR_MONTHS)[month-1];
-          
+    const { today } = this.state;
+    return (
+      <CalendarContext.Consumer>
+        {({state, onDateChange}) => {
           return (
-            <span key={getDateISO(new Date(year, month, day)) + index} className={`body-date ${activeDate === day ? 'active-date' : ''} ${isToday? 'today-date' : '' }`} onClick={this.setActive}>
-              { activeDate === day ? <center className="active-body-text">{monthString}</center> : null }
-              {isToday ? <center className="active-body-text">Today</center> : null}
-              {day}
-            </span>
-          );
-        })}
-      </>
-    );
-  }
-}
+            <>
+              {this.getCalendarDates().map((date, index) => {
+                const _date = new Date(date.join("-"));
+                const [year, month, day] = date;
+                const isToday = isSameDay(_date, today);
+                const isCurrent = isSameDay(_date, state.current);
+                const monthString = Object.keys(CALENDAR_MONTHS)[month - 1];
 
+                return (
+                  <span key={getDateISO(new Date(year, month, day)) + index} className={`body-date ${isCurrent ? 'active-date' : ''} ${isToday ? 'today-date' : ''}`} onClick={() => onDateChange(_date)}>
+                    {isToday ? <center className="active-body-text">{!isCurrent ? 'Today' : ''}</center> : null }
+                    {isCurrent ? <center className="active-body-text">{monthString}</center> : null }
+                    {day}
+                  </span>
+                );
+              })}
+            </>
+          );
+        }}
+      </CalendarContext.Consumer>
+      );
+    }
+  }
+  
 export default MonthDays;

@@ -5,13 +5,11 @@ import './Calendar.css';
 
 class Calendar extends Component {
   render() {
-    const { current } = this.props;
-
-    return(
+    return (
       <>
         <WeekDays />
         <div className="calendar-body">
-          <MonthDays date={current}/>
+          <MonthDays />
         </div>
       </>
     );
