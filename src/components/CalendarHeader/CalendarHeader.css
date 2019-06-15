@@ -1,0 +1,20 @@
+.calendar-header {
+  background-color: rgb(68, 138, 255);
+  color: #fff;
+  padding: 1em 1.8em;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.calendar-header p {
+  margin: 0;
+}
+
+.header-year {
+  font-size: 1.3rem;
+  color: hsla(0,0%,100%,.5);
+}
+
+.header-date {
+  font-size: 2.2rem;
+}

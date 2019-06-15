@@ -1,0 +1,11 @@
+.header-week {
+  display: flex;  
+}
+
+.weekday {
+  flex: 1;
+  text-align: center;
+  padding: 1.1em 0;
+  background-color: rgb(85, 159, 255);
+  color: #fff;
+}

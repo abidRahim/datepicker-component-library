@@ -1,0 +1,15 @@
+.month-select {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  padding: 0.8em 0;
+  width: 100%;
+}
+
+.header-month {
+  color: #fff;
+  padding: 0.2em 1em;
+  background-color: #2662cf;
+  border-radius: 3px;
+}
