@@ -1,19 +1,19 @@
 .body-date {
   padding: 1em;
-  color: rgb(162, 162, 162);  
+  color: rgb(180, 180, 180);  
 }
 
 .current-month {
-  color: rgb(51, 51, 51);
+  color: rgb(100, 100, 100);
+  border-radius: 50%;
 }
 
 .body-date:hover {
   background-color: hsl(0, 0%, 90%);  
-  border-radius: 50%;
 }
 
 .today-date {
-  background-color: rgb(34, 138, 121);
+  background-color: rgb(39, 160, 140);;
   position: relative;
   color: #fff;
   font-weight: 700;
@@ -22,7 +22,7 @@
 }
 
 .today-date:hover {
-  background-color: rgb(34, 138, 121);
+  background-color: rgb(39, 160, 140);;
 }
 
 .active-body-text {
