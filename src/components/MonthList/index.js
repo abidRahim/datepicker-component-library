@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CALENDAR_MONTHS } from '../../helpers/calendarMethod';
+import { CALENDAR_MONTHS } from '../../util/calendarMethod';
 import './MonthList.css';
 
 class MonthList extends Component {
@@ -18,9 +18,10 @@ class MonthList extends Component {
     return (
       <div className="month-select" onClick={this.closeMonthList}>
         {Object.keys(CALENDAR_MONTHS).map((month, index) => {
-          const isCurrentMonth = index === currentMonth;
+          const isCurrentMonth = (index === currentMonth);
+
           return (
-            <div key={month} className={`header-month ${isCurrentMonth? 'active-month' : ''}`} onClick={() => this.selectMonth(index)}>
+            <div key={month} className={`header-month ${isCurrentMonth ? 'active' : ''}`} onClick={() => this.selectMonth(index)}>
               {CALENDAR_MONTHS[month]}
             </div>
           );

@@ -1,0 +1,15 @@
+.today-container {
+  background-color: rgb(34, 138, 121);
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;  
+  cursor: pointer;
+  padding: 0.4em;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.today-container p {
+  margin: 0;
+}

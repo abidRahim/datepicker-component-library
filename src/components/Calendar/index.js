@@ -13,7 +13,7 @@ class Calendar extends Component {
         {({state, onDateChange}) => {
           return (
             <div className="calendar-body">
-              <MonthDays date={state.current} onDateChange={onDateChange}/>
+              <MonthDays current={state.current} onDateChange={onDateChange}/>
             </div>
           )
         }}

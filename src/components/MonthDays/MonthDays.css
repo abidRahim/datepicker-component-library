@@ -1,11 +1,14 @@
 .body-date {
   padding: 1em;
+  color: rgb(162, 162, 162);  
+}
+
+.current-month {
   color: rgb(51, 51, 51);
 }
 
 .body-date:hover {
-  background-color: hsl(0, 0%, 90%);
-  cursor: pointer;
+  background-color: hsl(0, 0%, 90%);  
   border-radius: 50%;
 }
 

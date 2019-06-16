@@ -1,0 +1,35 @@
+.year-list {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 300%;  
+  background-color: rgb(85, 159, 255);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.add-year {
+  text-align: center;
+  color: #fff;
+  font-size: 1.3em;
+  border-radius: 2em;
+}
+
+.add-year:hover {
+  color: hsla(0,0%,100%,.5);
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.disable-scrollbars {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

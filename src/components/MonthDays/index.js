@@ -1,62 +1,44 @@
 import React, { Component } from 'react';
-import calendarMethod, {
-  isDate,
+import calendarMethod, {  
   isSameDay,
   isSameMonth,
   getDateISO,
-  getNextMonth,
-  getPreviousMonth,
   CALENDAR_MONTHS
-} from '../../helpers/calendarMethod';
+} from '../../util/calendarMethod';
 import './MonthDays.css';
 
 class MonthDays extends Component {
-  state = { 
-    current: new Date(),
-    month: null,
-    year: null,
-    today: new Date()
-  };
-
-  resolveStateFromProp(date) {
-    const isDateObject = isDate(date);    
-    const _date = isDateObject ? date : new Date();
-
-    this.setState({
-      current: isDateObject ? date : null,
-      month: +_date.getMonth() + 1,
-      year: _date.getFullYear()
-    }, () => this.props.onDateChange(this.state.current));
+  state = {
+    today: new Date(),
   }
-
-  getCalendarDates = () => {
-    const { current, month, year } = this.state;
-    const calendarMonth = month || +current.getMonth() + 1;
-    const calendarYear = year || current.getFullYear();
-
+  
+  getCalendarDates = (current) => {
+    const calendarMonth = +current.getMonth() + 1;
+    const calendarYear = current.getFullYear();
+    
     return calendarMethod(calendarMonth, calendarYear);
   };
 
-  setCurrent = (current) => {
-    this.setState({
-      current,
-    });
+  onCalendarDateChange = (currentDate) => {    
+    this.props.onDateChange(currentDate);
   }
 
-  render() {    
-    const { today, current } = this.state;  
+  render() {
+    const { today } = this.state;
+    const { current } = this.props;
     
     return (
       <>
-        {this.getCalendarDates().map((date, index) => {
-          const _date = new Date(date.join("-"));
+        {this.getCalendarDates(current).map((date, index) => {          
+          const _date = new Date(date.join("-"));          
           const [year, month, day] = date;
           const isToday = isSameDay(_date, today);
           const isCurrent = isSameDay(_date, current);
+          const isCurrentMonth = isSameMonth(_date, current);
           const monthString = CALENDAR_MONTHS[Object.keys(CALENDAR_MONTHS)[month - 1]];
 
           return (
-            <span key={getDateISO(new Date(year, month, day)) + index} className={`body-date ${isCurrent ? 'active-date' : ''} ${isToday ? 'today-date' : ''}`} onClick={() => this.resolveStateFromProp(_date)}>
+            <span key={getDateISO(new Date(year, month, day)) + index} className={`body-date ${isCurrentMonth ? 'current-month' : ''} ${isCurrent ? 'active-date' : ''} ${isToday ? 'today-date' : ''}`} onClick={() => {this.onCalendarDateChange(_date)}}>
               {isToday ? <center className="active-body-text">{!isCurrent ? 'Today' : ''}</center> : null}
               {isCurrent ? <center className="active-body-text">{monthString}</center> : null}
               {day}
