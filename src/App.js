@@ -10,8 +10,7 @@ class App extends Component {
     current: new Date(),
   }
 
-  onDateChange = (current) => {
-    console.log(current, 'curr in App.js');
+  onDateChange = (current) => {    
     this.setState({
       current,
     })

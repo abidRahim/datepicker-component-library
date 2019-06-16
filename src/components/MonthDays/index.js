@@ -30,8 +30,7 @@ class MonthDays extends Component {
     return (
       <>
         {this.getCalendarDates(current).map((date, index) => {          
-          const _date = new Date(date.join("-"));
-          console.log(_date);
+          const _date = new Date(date.join("-"));          
           const [year, month, day] = date;
           const isToday = isSameDay(_date, today);
           const isCurrent = isSameDay(_date, current);
