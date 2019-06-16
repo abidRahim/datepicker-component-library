@@ -30,6 +30,8 @@ export const CALENDAR_WEEKS = 6;
 
 export const zeroPad = (value, length) => `${value}`.padStart(length, '0')
 
+export const getOrdinal = (n) => ["st","nd","rd"][((n+90)%100-10)%10-1]||"th";
+
 export const isDate = date => {
 	const isDate = Object.prototype.toString.call(date) === '[object Date]';
 	const isValidDate = date && !Number.isNaN(date.valueOf());

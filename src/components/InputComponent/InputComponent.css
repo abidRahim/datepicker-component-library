@@ -1,0 +1,33 @@
+.input-container {
+  display: flex;  
+}
+
+.format-select {
+  flex: 1;
+  padding: 5px;
+	background-color: white;
+  border: 2px solid rgb(219, 219, 219);
+  color: rgb(100, 100, 100);
+	font-size: 1.08rem;
+}
+
+.date-text:focus, .format-select:focus {
+  outline: none;
+}
+
+.date-text {
+  flex: 2;
+  font-size: 1rem;
+  padding: 0.6em;
+  background: none;
+  color: rgb(100, 100, 100);
+  font-weight: 700;
+  text-align: center;  
+  border: 2px solid rgb(219, 219, 219);  
+  transition: border 0.18s ease-in;
+  /* box-shadow: inset 0px 0px 4px 1px rgba(173,173,173,1); */
+}
+
+.date-text:focus {
+  border-color: rgb(85, 159, 255);
+}
