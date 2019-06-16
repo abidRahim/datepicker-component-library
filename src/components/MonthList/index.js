@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CALENDAR_MONTHS } from '../../helpers/calendarMethod';
+import { CALENDAR_MONTHS } from '../../util/calendarMethod';
 import './MonthList.css';
 
 class MonthList extends Component {

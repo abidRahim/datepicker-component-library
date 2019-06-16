@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { WEEKDAYS, CALENDAR_MONTHS, getPreviousMonth, getNextMonth } from '../../helpers/calendarMethod';
+import { WEEKDAYS, CALENDAR_MONTHS, getPreviousMonth, getNextMonth } from '../../util/calendarMethod';
 import './CalendarHeader.css';
 import MonthList from '../MonthList';
 import YearList from '../YearList';

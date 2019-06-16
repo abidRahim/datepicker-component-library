@@ -19,9 +19,9 @@ class YearList extends Component {
       <div className="year-list">
         {[...new Array(yearRange)].map((val, index) => {
           const addYear = (currentYear - Math.floor(yearRange/2)) + index;
-          const isActiveYear = (addYear === currentYear);
+          const isActiveYear = (addYear === currentYear);          
 
-          return (<p className={`add-year ${isActiveYear ? 'active' : ''}`} onClick={() => this.selectYear(addYear)}>{addYear}</p>);
+          return (<p key={addYear} className={`add-year ${isActiveYear ? 'active' : ''}`} onClick={() => this.selectYear(addYear)}>{addYear}</p>);
         })}
       </div>
     );

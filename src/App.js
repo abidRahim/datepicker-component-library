@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Calendar from './components/Calendar';
 import CalendarHeader from './components/CalendarHeader';
 import './App.css';
+import TodaySelect from './components/TodaySelect';
 
 export const CalendarContext = React.createContext(null);
 class App extends Component {  
@@ -10,6 +11,7 @@ class App extends Component {
   }
 
   onDateChange = (current) => {
+    console.log(current, 'curr in App.js');
     this.setState({
       current,
     })
@@ -25,6 +27,7 @@ class App extends Component {
         <div className="app">
           <CalendarHeader current={current} onDateChange={this.onDateChange}/>
           <Calendar />
+          <TodaySelect onDateChange={this.onDateChange}/>
         </div>
       </CalendarContext.Provider>
     );
