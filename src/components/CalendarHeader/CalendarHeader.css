@@ -1,7 +1,6 @@
 .header-wrapper {
   display: flex;
-  justify-content: space-between;
-  /* align-items: center; */
+  justify-content: space-between;  
   background-color: rgb(68, 138, 255);
   color: #fff;
   padding: 1em 0;
@@ -10,7 +9,7 @@
 }
 
 .calendar-header {
-  /* display: inline-block; */
+  position: relative;
 }
 
 .calendar-header p {
@@ -19,7 +18,6 @@
 
 .header-year {
   font-size: 1.3rem;
-  /* width: 15%; */
   color: hsla(0,0%,100%,.5);
 }
 
@@ -50,4 +48,8 @@
 
 .angle:hover {  
   background-color: rgb(85, 159, 255);    
+}
+
+.year-container {
+  height: 27px;
 }

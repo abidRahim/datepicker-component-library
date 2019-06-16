@@ -12,9 +12,13 @@
   padding: 0.2em 1em;
   background-color: #2662cf;
   border-radius: 3px;
+}
+
+.header-month:hover {
+  color: hsla(0,0%,100%,.5);
   cursor: pointer;
 }
 
-.active-month {
+.active {
   background-color: rgb(85, 159, 255);
 }
