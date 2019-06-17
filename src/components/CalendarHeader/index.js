@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { space, layout, color, flexbox } from "styled-system";
+import { space, color, flexbox } from "styled-system";
 import { WEEKDAYS, CALENDAR_MONTHS, getOrdinal, getPreviousMonth, getNextMonth } from '../../util/calendarMethod';
 import MonthList from '../MonthList';
 import YearList from '../YearList';
@@ -15,8 +15,7 @@ const CalendarWrapper = styled.div`
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   ${flexbox}
-  ${color}
-  ${layout}
+  ${color}  
   ${space}
 `;
 
