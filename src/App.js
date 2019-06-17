@@ -69,7 +69,7 @@ class App extends Component {
           onDateChange: this.onDateChange
         }}>
           <AppWrapper m="3em auto 0" width="400px" bg="background" ref={node => this.node = node} onClick={() => this.showCalendarComponent(true)}>
-            <Button position="absolute" top="50px" right="50px" bg="primary" className="mode-button" onClick={this.handleMode}>{themeName}</Button>
+            <Button position="absolute" bg="primary" className="mode-button" onClick={this.handleMode}>{themeName}</Button>
             <InputComponent current={current} />
             { showCalendar ?
               <CalendarComponent current={current} onDateChange={this.onDateChange}/> : ''
