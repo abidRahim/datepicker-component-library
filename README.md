@@ -3,6 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Datepicker component
 Datepicker where user can select format and pick date in desired format. User can navigate to preceding and following months, select month/ year from to view month calendar.
 
+Live project can be seen [here](https://datepicker-component.netlify.com) : https://datepicker-component.netlify.com
+
 ----
 
 In the project directory, you can run:
