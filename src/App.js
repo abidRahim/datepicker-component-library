@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import InputComponent from './components/InputComponent';
 import CalendarComponent from './components/CalendarComponent';
 import styled, { ThemeProvider } from 'styled-components';
-import { space, layout, color, position } from "styled-system";
+import { space, color, position, layout } from "styled-system";
 import { theme } from './theme';
 import './App.css';
 
 export const CalendarContext = React.createContext(null);
 const AppWrapper = styled.div`
-  ${space}
-  ${layout}
+  ${space}  
   ${color}
-  `;
+  ${layout}
+`;
+
   const Button = styled.button`
   ${position}
   ${color}
@@ -20,7 +21,7 @@ const AppWrapper = styled.div`
 class App extends Component {
   state = {
     current: new Date(),
-    showCalendar: false,
+    showCalendar: true,
     darkMode: false,
   }
 

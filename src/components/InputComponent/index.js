@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { zeroPad, CALENDAR_MONTHS, getOrdinal } from '../../util/calendarMethod';
 import styled from 'styled-components';
-import { space, layout, color, border } from "styled-system";
-import './InputComponent.css';
+import { space, color, border } from "styled-system";
 
 const FlexWrapper = styled.div`
   display: flex;
@@ -19,7 +18,6 @@ const Input = styled.input`
   
   ${color}
   ${space}
-  ${layout}
   ${border}
 
   &:focus {
@@ -112,7 +110,7 @@ class InputComponent extends Component {
     const { date } = this.state;    
 
     return (
-      <FlexWrapper>
+      <FlexWrapper flex="flex">
         <Input type="text" bg="primary" value={date} onChange={() => {}}/>
         <Select name="format-select" onChange={this.selectFormat}>
           <option value="select">Select Format</option>

@@ -26,10 +26,6 @@ div, p {
 }
 
 @media screen and (max-width: 640px) {
-  body {
-    padding: 0.1em;
-  }
-
   .mode-button {
     top: 0;
     left: 0;

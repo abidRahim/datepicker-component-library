@@ -1,5 +1,4 @@
 import React from 'react';
-import './CalendarComponent.css';
 import CalendarHeader from '../CalendarHeader';
 import Calendar from '../Calendar';
 import TodaySelect from '../TodaySelect';
