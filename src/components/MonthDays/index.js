@@ -38,7 +38,7 @@ class MonthDays extends Component {
           const monthString = CALENDAR_MONTHS[Object.keys(CALENDAR_MONTHS)[month - 1]];
 
           return (
-            <span key={getDateISO(new Date(year, month, day)) + index} className={`body-date ${isCurrentMonth ? 'current-month' : ''} ${isCurrent ? 'active-date' : ''} ${isToday ? 'today-date' : ''}`} onClick={() => {this.onCalendarDateChange(_date)}}>
+            <span className={`body-date ${isCurrentMonth ? 'current-month' : ''} ${isCurrent ? 'active-date' : ''} ${isToday ? 'today-date' : ''}`} key={getDateISO(new Date(year, month, day)) + index} onClick={() => {this.onCalendarDateChange(_date)}}>
               {isToday ? <center className="active-body-text">{!isCurrent ? 'Today' : ''}</center> : null}
               {isCurrent ? <center className="active-body-text">{monthString}</center> : null}
               {day}

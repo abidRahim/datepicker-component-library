@@ -5,17 +5,29 @@
 }
 
 body {
-  background-color: hsl(0, 0%, 90%);
-}
-
-.app {
-  width: 400px;
-  margin: 3em auto 0;
-  background-color: #fff;
+  background-color: hsl(0, 0%, 90%);  
 }
 
 div, p {
   transition-property: background;
   transition-duration: 0.15s;
   transition-timing-function: ease-in-out;
+}
+
+.mode-button {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  padding: 0.6em;
+  font-size: 1rem;
+  border: 3px solid black;
+  color: rgb(100,100,100);
+  outline:none;
+}
+
+@media screen and (max-width: 540px) {
+  .mode-button {
+    top: 0;
+    right: 0;
+  }
 }
