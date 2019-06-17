@@ -1,5 +1,5 @@
 .year-list {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -10,7 +10,7 @@
   scroll-behavior: smooth;
   border-radius: 5px;
   z-index: 1;
-  box-shadow: 0 4px 2px 0 #bababa;
+  box-shadow: 0 4px 2px 0 #bababa; */
 }
 
 .add-year {

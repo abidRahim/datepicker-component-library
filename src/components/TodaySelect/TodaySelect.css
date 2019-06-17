@@ -1,5 +1,5 @@
 .today-container {
-  background-color: rgb(39, 160, 140);;
+  /* background-color: rgb(39, 160, 140);;
   text-align: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;  
@@ -7,9 +7,9 @@
   padding: 0.6em;
   color: #fff;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 600; */
 }
 
-.today-container p {
+.today-text {
   margin: 0;
 }

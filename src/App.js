@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 import InputComponent from './components/InputComponent';
 import CalendarComponent from './components/CalendarComponent';
+import styled, { ThemeProvider } from 'styled-components';
+import { space, layout, color, position } from "styled-system";
+import { theme } from './theme';
 import './App.css';
 
 export const CalendarContext = React.createContext(null);
+const AppWrapper = styled.div`
+  ${space}
+  ${layout}
+  ${color}
+  `;
+  const Button = styled.button`
+  ${position}
+  ${color}
+`;
+
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.showCalendarComponent = this.showCalendarComponent.bind(this);
+  state = {
+    current: new Date(),
+    showCalendar: false,
+    darkMode: false,
   }
 
   componentDidMount = () => {
@@ -16,11 +30,6 @@ class App extends Component {
 
   componentWillUnmount = () => {
     document.removeEventListener('mousedown', this.handleClick, false);
-  }
-
-  state = {
-    current: new Date(),
-    showCalendar: false,
   }
 
   onDateChange = (current) => {
@@ -42,23 +51,32 @@ class App extends Component {
       showCalendar,
     })
   }
+  handleMode = () => {
+    this.setState({
+      darkMode: !this.state.darkMode,
+    })
+  }
 
   render() {
-    const { current, showCalendar } = this.state;
+    const { current, showCalendar, darkMode} = this.state;
+    const themeName = darkMode ? 'Dark' : 'Light';
+    const modeTheme = darkMode ? Object.assign({}, theme, {colors: theme.colors.modes[themeName]}) : theme;
+
     return (
-      <React.Fragment>
+      <ThemeProvider theme={modeTheme}>
         <CalendarContext.Provider value={{
           state: this.state,
           onDateChange: this.onDateChange
         }}>
-          <div className="app" ref={node => this.node = node} onClick={() => this.showCalendarComponent(true)}>
+          <AppWrapper m="3em auto 0" width="400px" bg="background" ref={node => this.node = node} onClick={() => this.showCalendarComponent(true)}>
+            <Button position="absolute" top="50px" right="50px" bg="primary" className="mode-button" onClick={this.handleMode}>{themeName}</Button>
             <InputComponent current={current} />
             { showCalendar ?
               <CalendarComponent current={current} onDateChange={this.onDateChange}/> : ''
             }
-          </div>
+          </AppWrapper>
         </CalendarContext.Provider>
-      </React.Fragment>
+      </ThemeProvider>
     );
   }
 }

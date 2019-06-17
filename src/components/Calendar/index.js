@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import WeekDays from '../WeekDays';
 import MonthDays from '../MonthDays';
 import { CalendarContext } from '../../App';
+import styled from 'styled-components';
+import { color } from "styled-system";
 import './Calendar.css';
+
+const CalendarWrapper = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 5px;
+  justify-items: center;
+  padding: 0.15em 0;
+  color: rgb(180, 180, 180);
+  ${color}
+`;
 
 class Calendar extends Component {
   render() {
@@ -12,9 +25,9 @@ class Calendar extends Component {
         <CalendarContext.Consumer>
         {({state, onDateChange}) => {
           return (
-            <div className="calendar-body">
+            <CalendarWrapper color="gray" bg="primary">
               <MonthDays current={state.current} onDateChange={onDateChange}/>
-            </div>
+            </CalendarWrapper>
           )
         }}
         </CalendarContext.Consumer>
