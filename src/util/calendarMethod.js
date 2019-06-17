@@ -106,11 +106,8 @@ export const getNextMonth = (month, year) => {
 }
 
 export default (month = THIS_MONTH, year = THIS_YEAR) => {
-	const monthDays = getMonthDays(month, year);
-	console.log(monthDays, 'monthDays');
+	const monthDays = getMonthDays(month, year);	
 	const monthFirstDay = getMonthFirstDay(month, year);
-	console.log(monthFirstDay, 'monthfirstday');
-	
 	const daysFromPrevMonth = monthFirstDay - 1;
 	const daysFromNextMonth = (CALENDAR_WEEKS * 7) - (daysFromPrevMonth + monthDays);
 
