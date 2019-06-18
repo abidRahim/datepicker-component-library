@@ -52,6 +52,7 @@ class App extends Component {
       showCalendar,
     })
   }
+  
   handleMode = () => {
     this.setState({
       darkMode: !this.state.darkMode,
