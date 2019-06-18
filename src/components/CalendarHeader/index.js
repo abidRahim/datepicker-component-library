@@ -9,8 +9,6 @@ import './CalendarHeader.css';
 const CalendarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: rgb(68, 138, 255);
-  color: #fff;
   padding: 1em 0;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
@@ -129,7 +127,7 @@ class CalendarHeader extends Component {
     const day = WEEKDAYS[Object.keys(WEEKDAYS)[current.getDay()]];
     const month = CALENDAR_MONTHS[Object.keys(CALENDAR_MONTHS)[current.getMonth()]]
     const date = current.getDate();
-    const currentOrdinal =  getOrdinal(date);
+    const currentOrdinal =  getOrdinal(+date);
 
     return (
       <CalendarWrapper bg="secondary" color="primary">

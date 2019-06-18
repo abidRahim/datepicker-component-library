@@ -64,7 +64,10 @@ class InputComponent extends Component {
     const currentMonth = zeroPad(current.getMonth() + 1, 2);    
     const currentStringMonth = CALENDAR_MONTHS[Object.keys(CALENDAR_MONTHS)[current.getMonth()]];
     const day = zeroPad(current.getDate(), 2);
-    const currentOrdinal = getOrdinal(day);
+    const currentOrdinal = getOrdinal(+day);
+
+    console.log(day, currentOrdinal);
+
     let date = null;
 
     switch(format) {
